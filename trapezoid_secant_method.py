@@ -1,5 +1,3 @@
-import numpy as np
-
 from utils import *
 from scipy.optimize import newton
 
@@ -74,4 +72,6 @@ def P_a(t, T, s, K, r, sigma, n):
 
     return price
 
-print(P_a(0,1,40,40,0.06,0.2,100))
+if __name__ == '__main__':
+    print('Trapezoid Method test')
+    print(P_a(0,1,40,40,0.06,0.2,100))
