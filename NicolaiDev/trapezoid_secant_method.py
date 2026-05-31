@@ -1,7 +1,7 @@
 from utils import *
 from scipy.optimize import newton
 
-def b(t, T, K, r, sigma, n):
+def b_num_solv(t, T, K, r, sigma, n):
     b_guess = K
     t_delta = T / n
     t_set = np.linspace(t, T, n+1)[:-1][::-1]  # Backward in time
@@ -48,8 +48,10 @@ def b(t, T, K, r, sigma, n):
     return b_final
 
 
-def P_a(t, T, s, K, r, sigma, n):
-    boundary = b(t, T, K, r, sigma, n)
+
+
+def P_a(t, T, s, K, r, sigma, n, b):
+    boundary = b
     trap_sum = 0
     t_delta = T / n
 
