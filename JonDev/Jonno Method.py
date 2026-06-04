@@ -9,7 +9,7 @@ K = 40
 r = 0.06
 sigma = 0.2
 T = 1
-n = 500
+n = 200
 numiter = 20
 
 trng = np.arange(0,T+T/n,T/n)[::-1]
