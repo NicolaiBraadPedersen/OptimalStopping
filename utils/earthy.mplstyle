@@ -93,3 +93,10 @@ savefig.facecolor       : "#FDFCF5"
 savefig.edgecolor       : white
 savefig.dpi             : 300
 savefig.bbox            : tight
+
+########################
+# Fonts (Roman / serif to match LaTeX body text)
+########################
+font.family             : serif
+font.serif              : Computer Modern Roman, CMU Serif, DejaVu Serif
+mathtext.fontset        : cm

@@ -50,8 +50,10 @@ for f in [f_builder_1]:  # , f_builder_2, f_builder_3]:
     ax_bot.set_ylabel("Boundary $b(t)$")
     ax_bot.set_title("Converged Early-Exercise Boundary | Picard Iteration")
     ax_bot.legend()
+    fig.suptitle(f'Method 1')
 
     plt.tight_layout()
-    plt.show()
+    plt.savefig(f'conv_params_method_1.png')
+    plt.close()
 
 

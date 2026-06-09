@@ -6,8 +6,8 @@ from Production.equations_to_solve import f_builder_1, f_builder_2, f_builder_3
 from price import price_amr_put, price_put_benchmark
 
 s, t0, mat, strike0, r, sigma, n0 = 36, 0, 1, 40, 0.06, 0.2, 500
-
-for f in [f_builder_2]:#, f_builder_2, f_builder_3]:
+i = 1
+for f in [f_builder_1, f_builder_2, f_builder_3]:
     fig, ax = plt.subplots(2, 1, figsize=(8, 9))
     p_bm = price_put_benchmark(mat, 5 * 10 ** 4, r, s, sigma, strike0)
 
@@ -22,7 +22,6 @@ for f in [f_builder_2]:#, f_builder_2, f_builder_3]:
         sweeps_num = np.arange(1,len(sweeps)+1)
         alphas = np.linspace(0.2, 1, 4)  # earliest iter most opaque, fading to converged
 
-        i = 0
         sweeps_res = []
         for k, b in enumerate(sweeps):
             p0 = price_amr_put(t0, mat, s, strike0, r, sigma, b)
@@ -60,7 +59,11 @@ for f in [f_builder_2]:#, f_builder_2, f_builder_3]:
     ax[1].set_xlim(left=-5, right=105)
     ax[1].set_title("Visual Convergence of Price | Both Methods | # of Steps")
     ax[1].legend()
+    fig.suptitle(f'Method {i}')
     plt.tight_layout()
-    plt.show()
+    plt.savefig(f'conv_price_method_{i}.png')
+    plt.close()
+
+    i += 1
 
 
