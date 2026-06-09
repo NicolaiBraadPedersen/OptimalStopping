@@ -24,7 +24,7 @@ def b_num_solv(t, mat, strike, r, sigma, n, f_builder, verbose=False):
 
         b_s_nodes = np.empty(n_steps + 1)
         b_s_nodes[0] = strike*r/2
-        b_s_nodes[1:] = b_final
+        b_s_nodes[1:] = strike
 
         ctx = SimpleNamespace(
             t=t, i=i, mat=mat, strike=strike, r=r, sigma=sigma, n=n,
