@@ -7,7 +7,7 @@ from price import price_amr_put, price_put_benchmark
 
 s, t0, mat, strike0, r, sigma, n0 = 36, 0, 1, 40, 0.06, 0.2, 500
 i = 1
-for f in [f_builder_1, f_builder_2, f_builder_3]:
+for f in [f_builder_1]:#, f_builder_2]: #, f_builder_3]:
     fig, ax = plt.subplots(2, 1, figsize=(8, 9))
     p_bm = price_put_benchmark(mat, 5 * 10 ** 4, r, s, sigma, strike0)
 
@@ -56,12 +56,12 @@ for f in [f_builder_1, f_builder_2, f_builder_3]:
     ax[1].set_xlabel("#steps")
     ax[1].set_ylabel(r"Relative Price")
     #ax[1].set_ylim(bottom=0.9775,top=1.1625)
-    ax[1].set_xlim(left=-5, right=105)
+    ax[1].set_xlim(left=7, right=103)
     ax[1].set_title("Visual Convergence of Price | Both Methods | # of Steps")
     ax[1].legend()
     fig.suptitle(f'Method {i}')
     plt.tight_layout()
-    plt.savefig(f'conv_price_method_{i}.png')
+    plt.savefig(rf'.png\conv_price_method_{i}.png')
     plt.close()
 
     i += 1

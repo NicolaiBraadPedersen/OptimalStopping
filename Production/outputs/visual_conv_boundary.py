@@ -14,9 +14,8 @@ b_benchmark = crr_put_bound(mat-t, n_bm, r, 40, sigma, strike)[::-1]
 times_benchmark = np.linspace(t, mat, len(b_benchmark))
 i = 1
 
-for f in [f_builder_1, f_builder_2, f_builder_3]:
-    if i < 3:
-        boundary, _, b_history  = b_fixed_point(t,mat, strike,r,sigma,n, f, return_history=True, tol=0.0001)
+for f in [f_builder_1, f_builder_2]: #, f_builder_3]:
+    boundary, _, b_history  = b_fixed_point(t,mat, strike,r,sigma,n, f, return_history=True, tol=0.0001)
     boundary_num, _ = b_num_solv(t,mat,strike,r,sigma,n,f)
     times = np.linspace(t, mat, len(boundary))  # same grid the solver used
 
@@ -28,7 +27,7 @@ for f in [f_builder_1, f_builder_2, f_builder_3]:
     alphas = np.linspace(0.2, 1, 4)  # earliest iter most opaque, fading to converged
 
     j = 0
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(8, 4.5))
     if i == 1:
         k_vals = [0,1,2,10,len(sweeps)-1]
     else:

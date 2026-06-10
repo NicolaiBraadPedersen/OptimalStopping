@@ -53,7 +53,7 @@ for f in [f_builder_1]:  # , f_builder_2, f_builder_3]:
     fig.suptitle(f'Method 1')
 
     plt.tight_layout()
-    plt.savefig(f'conv_params_method_1.png')
+    plt.savefig(fr'.png\conv_params_method_1.png')
     plt.close()
 
 
